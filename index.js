@@ -71,27 +71,44 @@
 
 // Escreva um programa na linguagem que desejar onde calcule o percentual de representação que cada estado teve dentro do valor total mensal da distribuidora. 
 
-const invoicing= {
-    "SP": 67836.43,
-    "RJ": 36678.66,
-    "MG": 29229.88,
-    "ES": 27165.48,
-    "Outros": 19849.53
-};
+// const invoicing= {
+//     "SP": 67836.43,
+//     "RJ": 36678.66,
+//     "MG": 29229.88,
+//     "ES": 27165.48,
+//     "Outros": 19849.53
+// };
 
-const states = Object.keys(invoicing);
-let monthlyTotal = 0;
+// const states = Object.keys(invoicing);
+// let monthlyTotal = 0;
 
-for (let i = 0; i < states.length; i++) {
-    monthlyTotal += invoicing[states[i]];
-}
+// for (let i = 0; i < states.length; i++) {
+//     monthlyTotal += invoicing[states[i]];
+// }
 
- alert(`Valor total do faturamento: R$${monthlyTotal.toFixed(2)}`);
+//  alert(`Valor total do faturamento: R$${monthlyTotal.toFixed(2)}`);
  
-for (let i = 0; i < states.length; i++) {
-    const state = states[i];
-    const value = invoicing[state];
-    const percentage = (value / monthlyTotal) * 100;
-    alert(`Percentual  ${state}: ${percentage.toFixed(2)}%`);
+// for (let i = 0; i < states.length; i++) {
+//     const state = states[i];
+//     const value = invoicing[state];
+//     const percentage = (value / monthlyTotal) * 100;
+//     alert(`Percentual  ${state}: ${percentage.toFixed(2)}%`);
+// }
+
+// 5- Escreva um programa que inverta os caracteres de um string.
+
+// IMPORTANTE:
+// a) Essa string pode ser informada através de qualquer entrada de sua preferência ou pode ser previamente definida no código;
+// b) Evite usar funções prontas, como, por exemplo, reverse;
+
+function inverterString(str){
+    let message = '';
+
+    for (let i = str.length -1; i >= 0; i--){
+       message += str[i];
+    }
+
+    return message;
 }
 
+alert(inverterString('Hello World!'));
