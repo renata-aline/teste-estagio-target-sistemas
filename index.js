@@ -43,23 +43,55 @@
 // • O maior valor de faturamento ocorrido em um dia do mês;
 // • Número de dias no mês em que o valor de faturamento diário foi superior à média mensal.
 
-fetch('faturamento.json')
-  .then(response => response.json())
-  .then(faturamento => {
+// fetch('faturamento.json')
+//   .then(response => response.json())
+//   .then(faturamento => {
     
-    const values = faturamento.map(dia => dia.valor).filter(valor => valor > 0);
+//     const values = faturamento.map(dia => dia.valor).filter(valor => valor > 0);
     
-    const lowestValue = Math.min(...values);
-    const highestValue = Math.max(...values);
+//     const lowestValue = Math.min(...values);
+//     const highestValue = Math.max(...values);
 
-    const total = values.reduce((acumulado, valor) => acumulado + valor, 0);
-    const average = total / values.length;
+//     const total = values.reduce((acumulado, valor) => acumulado + valor, 0);
+//     const average = total / values.length;
 
-    const aboveAverageDay = values.filter(valor => valor > average).length;
+//     const aboveAverageDay = values.filter(valor => valor > average).length;
 
-    alert(`Menor valor de faturamento: ${lowestValue.toFixed(2)}`);
-    alert(`Maior valor de faturamento: ${highestValue.toFixed(2)}`);
-    alert(`Número de dias com faturamento superior à média: ${aboveAverageDay}`);
-  })
+//     alert(`Menor valor de faturamento: ${lowestValue.toFixed(2)}`);
+//     alert(`Maior valor de faturamento: ${highestValue.toFixed(2)}`);
+//     alert(`Número de dias com faturamento superior à média: ${aboveAverageDay}`);
+//   })
 
+// 4- Dado o valor de faturamento mensal de uma distribuidora, detalhado por estado:
+// • SP – R$67.836,43
+// • RJ – R$36.678,66
+// • MG – R$29.229,88
+// • ES – R$27.165,48
+// • Outros – R$19.849,53
+
+// Escreva um programa na linguagem que desejar onde calcule o percentual de representação que cada estado teve dentro do valor total mensal da distribuidora. 
+
+const invoicing= {
+    "SP": 67836.43,
+    "RJ": 36678.66,
+    "MG": 29229.88,
+    "ES": 27165.48,
+    "Outros": 19849.53
+};
+
+const states = Object.keys(invoicing);
+let monthlyTotal = 0;
+
+for (let i = 0; i < states.length; i++) {
+    monthlyTotal += invoicing[states[i]];
+}
+
+ alert(`Valor total do faturamento: R$${monthlyTotal.toFixed(2)}`);
+ 
+for (let i = 0; i < states.length; i++) {
+    const state = states[i];
+    const value = invoicing[state];
+    const percentage = (value / monthlyTotal) * 100;
+    alert(`Percentual  ${state}: ${percentage.toFixed(2)}%`);
+}
 
